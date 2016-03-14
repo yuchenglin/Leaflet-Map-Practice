@@ -1,0 +1,22 @@
+{
+  "name": "leaflet",
+  "version": "1.0.0",
+  "description": "leaflet map",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JimJimlin/Leaflet-Map-Practice.git"
+  },
+  "author": "Jim",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JimJimlin/Leaflet-Map-Practice/issues"
+  },
+  "homepage": "https://github.com/JimJimlin/Leaflet-Map-Practice#readme",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
+}

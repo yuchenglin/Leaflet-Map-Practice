@@ -39,11 +39,12 @@
         }).addTo(map);
 
         var redMarker = L.AwesomeMarkers.icon({
-        icon: 'icon ion-ionic',
+        icon: 'icon ion-android-happy',
         markerColor: 'blue',
         });
 
         L.marker([51.941196,4.512291], {icon: redMarker}).addTo(map);
+        L.marker([51.941,4.512], {icon: redMarker}).addTo(map);
 
         var polyline = L.polyline([
             [51.509, -0.08],
@@ -53,9 +54,16 @@
 
         var circle = L.circle([23, 120], 6666).addTo(map);
 
-        $.getJSON("TAIPEI_Shelters.json",function(data){    
+        $.getJSON("TAIPEI_Shelters.json",function(data){
+
+            L.geoJson(data,{
+                pointToLayer: function(feature,latlng){
+
+                return L.marker(latlng,{icon: redMarker});
+                
+                }   
+            }).addTo(map);
         
-        L.geoJson(data).addTo(map);
         });
 
     </script>

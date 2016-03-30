@@ -48,12 +48,15 @@
             L.geoJson(data,{
                 pointToLayer: function(feature,latlng){
 
-                return L.marker(latlng,{icon: redMarker});
+                var marker = L.marker(latlng,{icon: redMarker});
+                marker.bindPopup(feature.properties.name + '<br/>' + feature.geometry.coordinates);
+                return marker;
 
                 }   
             }).addTo(map);
         
         });
+
 
     </script>
 </body>

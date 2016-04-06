@@ -58,6 +58,13 @@
         });
 
 
+        $.getJSON("map.geojson",function(hooddata){
+
+            L.geoJson(hooddata).addTo(map);
+
+        });
+
+
     </script>
 </body>
 </html>

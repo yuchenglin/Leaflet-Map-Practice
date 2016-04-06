@@ -22,9 +22,11 @@
 
     <script src="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"></script>
 
+    <script src="/socket.io/socket.io.js"></script>
+
 </head>
 <body>
-    <div id="map" style="width: 800px; height: 600px"></div>
+    <div id="map" style="width: 400px; height: 300px"></div>
     
     <script>
 
@@ -66,5 +68,19 @@
 
 
     </script>
+
+    
+        
+    <script>
+        var socket = io.connect('http://localhost:3000');
+        socket.on('news', function (data) {
+        console.log(data);
+        socket.emit('my other event', { my: 'data' });
+        });
+    </script>
+    
+
+
+
 </body>
 </html>

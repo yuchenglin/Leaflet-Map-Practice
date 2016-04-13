@@ -3,7 +3,6 @@
 <head>
     <title>Leaflet Practice</title>
     <meta charset="utf-8" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
@@ -23,6 +22,8 @@
     <script src="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"></script>
 
     <script src="/socket.io/socket.io.js"></script>
+
+    <script type="text/javascript" src="MovingMarker.js"></script> 
 
 </head>
 <body>
@@ -65,12 +66,15 @@
         
         });
 
-
         $.getJSON("map.geojson",function(hooddata){
 
             L.geoJson(hooddata).addTo(map);
 
         });
+
+        var myMovingMarker = L.Marker.movingMarker([[48.8567, 2.3508],[50.45, 30.523333]],
+                        [20000]).addTo(map);
+        
 
     </script>
 

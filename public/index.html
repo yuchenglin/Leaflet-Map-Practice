@@ -66,15 +66,25 @@
         
         });
 
-        $.getJSON("map.geojson",function(hooddata){
+        $.getJSON("http://yuchenglin.github.io/test_multipoint.json",function(hooddata){
 
             L.geoJson(hooddata).addTo(map);
 
         });
 
-        var myMovingMarker = L.Marker.movingMarker([[48.8567, 2.3508],[50.45, 30.523333]],
-                        [20000]).addTo(map);
-        
+
+        var londonParisRomeBerlinBucarest = [[51.507222, -0.1275], [48.8567, 2.3508],
+        [41.9, 12.5], [52.516667, 13.383333], [44.4166,26.1]];
+
+        var marker2 = L.Marker.movingMarker(londonParisRomeBerlinBucarest,
+        [3000, 9000, 9000, 4000], {autostart: true}).addTo(map);
+        L.polyline(londonParisRomeBerlinBucarest, {color: 'red'}).addTo(map);
+
+
+        marker2.on('end', function() {
+        marker2.bindPopup('<b>Welcome to Bucarest !</b>', {closeOnClick: false})
+        .openPopup();
+        });
 
     </script>
 

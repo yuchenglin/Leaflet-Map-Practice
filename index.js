@@ -14,10 +14,3 @@ app.use(express.static(path.join(__dirname,'public')));
 app.get('/', function (req, res) {
   res.sendfile(__dirname + '/index.html');
 });
-
-io.on('connection', function (socket) {
-  socket.emit('news', { hello: 'Gee Gee Gee Gee baby baby baby' });
-  socket.on('my other event', function (data) {
-    console.log(data);
-  });
-});

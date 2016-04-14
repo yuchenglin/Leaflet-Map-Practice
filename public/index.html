@@ -23,7 +23,7 @@
 
     <script src="/socket.io/socket.io.js"></script>
 
-    <script type="text/javascript" src="MovingMarker.js"></script> 
+    <script type="text/javascript" src="../MovingMarker.js"></script>
 
 </head>
 <body>
@@ -72,19 +72,27 @@
 
         });
 
+        
 
-        var londonParisRomeBerlinBucarest = [[51.507222, -0.1275], [48.8567, 2.3508],
+
+        var parisKievLL = [[48.8567, 2.3508], [50.45, 30.523333]];
+        var londonParisRomeBerlinBucarest = [[51.507222, -0.1275], [48.8567, 2.3508], 
         [41.9, 12.5], [52.516667, 13.383333], [44.4166,26.1]];
 
-        var marker2 = L.Marker.movingMarker(londonParisRomeBerlinBucarest,
-        [3000, 9000, 9000, 4000], {autostart: true}).addTo(map);
+        L.polyline(parisKievLL).addTo(map);
         L.polyline(londonParisRomeBerlinBucarest, {color: 'red'}).addTo(map);
 
+        L.Marker.movingMarker(parisKievLL, [100000]).addTo(map);
 
-        marker2.on('end', function() {
-        marker2.bindPopup('<b>Welcome to Bucarest !</b>', {closeOnClick: false})
-        .openPopup();
-        });
+        //var marker2 = L.Marker.movingMarker(londonParisRomeBerlinBucarest,
+        //[500, 500, 500, 500], {autostart: true}).addTo(map);
+        //L.polyline(londonParisRomeBerlinBucarest, {color: 'red'}).addTo(map);
+        //map.fitBounds(londonParisRomeBerlinBucarest);
+
+        //marker2.on('end', function() {
+        //marker2.bindPopup('<b>Welcome to 肛肛 !</b>', {closeOnClick: false})
+        //.openPopup();
+        //});
 
     </script>
 
